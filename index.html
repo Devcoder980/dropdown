@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    .flex {
+      display: flex;
+    }
+  </style>
+</head>
+<style>
+  main {
+    font-family: monospace;
+  }
+
+  .dropdown-child {
+    display: none;
+  }
+
+  .dropdown-parent:hover .dropdown-child {
+    display: block;
+  }
+
+  .dropdown-child a {
+    display: block;
+  }
+
+  button {
+    border: none;
+  }
+
+  .justify-content {
+    justify-content: space-between;
+  }
+
+  .right-img {
+    width: 80%;
+    height: 85%;
+  }
+
+  .left {
+    width: 51em;
+    padding: 3% 0% 3% 5%;
+  }
+
+  .right {
+    width: 40em;
+  }
+
+  .align-item {
+    align-items: center;
+  }
+
+  h1 {
+    margin-top: 7px;
+    padding-left: 54px;
+  }
+
+  h2 {
+    font-size: 4.5em;
+    margin: 0px 0px 0px 0px;
+    font-weight: bold;
+    letter-spacing: -1px;
+  }
+
+  p {
+    color: #8c8c8c;
+    font-size: 1.5em;
+    font-weight: 500;
+    letter-spacing: -1px;
+    padding-right: 25%;
+  }
+
+  .dropdown-parent {
+    display: inline-block;
+    position: relative;
+  }
+
+  img {
+    padding-right: 10px;
+  }
+
+  /* CSS */
+  .button-27 {
+    appearance: none;
+    background-color: #000000;
+    border: 2px solid #1A1A1A;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 4%;
+    min-height: 60px;
+    min-width: 0;
+    outline: none;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 30%;
+    will-change: transform;
+  }
+
+  .button-27:disabled {
+    pointer-events: none;
+  }
+
+  .button-27:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+
+  .button-27:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+
+  .icons {
+    padding: 13% 1% 4% 0%;
+  }
+
+  .icons img {
+    padding-left: 4%;
+  }
+
+  .margin-left {
+    margin-left: 2em;
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(163, 159, 159);
+    width: 100%;
+  }
+
+  .margin-right {
+    margin-right: 0.6em;
+  }
+
+  button.margin-left {
+    background-color: white;
+  }
+
+  button.margin-right {
+    background-color: white;
+    width: 6em;
+    height: 2.5em;
+    border-radius: 10px;
+    border: 1px solid;
+  }
+
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  .dropdown-child {
+    display: none;
+    position: absolute;
+    width: 110%;
+    overflow: auto;
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
+    background-color: white;
+  }
+
+  .dropdown-child a {
+    display: block;
+    color: #000000;
+    padding: 5px;
+    text-decoration: none;
+  }
+
+  label {
+    display: block;
+    color: #000000;
+    padding: 5px;
+    text-decoration: none;
+  }
+
+  .dropdown-child a:hover {
+    color: #FFFFFF;
+    background-color: #00A4BD;
+  }
+
+  @media screen and (max-width: 400px) {
+    body {
+      background-color: red;
+      color: white;
+
+    }
+
+    h2 {
+      font-size: 3.5em;
+    }
+
+    p {
+      padding-right: 0px;
+    }
+
+    button.button-27 {
+      width: 45%;
+    }
+
+    .icons img {
+      padding-left: 13%;
+    }
+
+    .right-img {
+      width: 90%;
+      height: 85%;
+      padding: 23px;
+    }
+    .show{
+      display: none;
+    }
+  }
+  #menu{
+    display: none;
+  }
+</style>
+
+<body>
+  <header class="flex justify-content flex-wrap ">
+    <div class="flex align-item flex-wrap">
+      <h1 class="margin-right">snap</h1>
+      <div><img class="dropdown-parent" id="menu" src="/intro-section-with-dropdown-navigation-main/images/icon-menu.svg" alt=""></div>
+      <div class="dropdown-parent">
+        <button class="margin-left show">Features <img
+            src="/intro-section-with-dropdown-navigation-main/images/icon-arrow-up.svg" alt=""></button>
+        <div class="dropdown-child">
+          <label for=""><a href="#"><img src="/intro-section-with-dropdown-navigation-main/images/icon-todo.svg"
+                alt="">Todo List</a></label>
+          <label for=""><a href="#"><img src="/intro-section-with-dropdown-navigation-main/images/icon-calendar.svg"
+                alt="">Calendar</a></label>
+          <label for=""><a href="#"><img src="/intro-section-with-dropdown-navigation-main/images/icon-reminders.svg"
+                alt="">Reminders</a></label>
+          <label for=""><a href="#"><img src="/intro-section-with-dropdown-navigation-main/images/icon-planning.svg"
+                alt="">Planning</a></label>
+        </div>
+      </div>
+      <div class="dropdown-parent">
+        <button class="margin-left show">Company<img
+            src="/intro-section-with-dropdown-navigation-main/images/icon-arrow-up.svg" alt=""></button>
+        <div class="dropdown-child">
+          <label for=""><a href="#">History</a></label>
+          <label for=""><a href="#">Our Team</a></label>
+          <label for=""><a href="#">Blog</a></label>
+        </div>
+      </div>
+      <div>
+        <label class="margin-left show" for="">Careers</label>
+      </div>
+      <div>
+        <label class="margin-left show" for="">About</label>
+      </div>
+    </div>
+    <div class="flex align-item">
+      <div><label class="margin-right" for="">Log in</label></div>
+      <div><button class="margin-right">Register</button></div>
+    </div>
+  </header>
+  <main class="flex-wrap">
+    <div class="box flex flex-wrap ">
+      <div class="left">
+        <div>
+          <h2>Make</h2>
+        </div>
+        <div>
+          <h2 id="remote">Remote work</h2>
+        </div>
+        <div>
+          <p>Get your team in sync, no matter your location. Streamline processes,
+            create team rituals, and watch productivity soar.</p>
+        </div>
+        <div>
+          <!-- HTML !-->
+          <button class="button-27" role="button">Learn More</button>
+
+        </div>
+        <div class="icons">
+          <img src="/intro-section-with-dropdown-navigation-main/images/client-databiz.svg" alt="">
+          <img src="/intro-section-with-dropdown-navigation-main/images/client-audiophile.svg" alt="">
+          <img src="/intro-section-with-dropdown-navigation-main/images/client-maker.svg" alt="">
+          <img src="/intro-section-with-dropdown-navigation-main/images/client-meet.svg" alt="">
+        </div>
+      </div>
+      <div class="right ">
+        <img class="right-img" src="/intro-section-with-dropdown-navigation-main/images/image-hero-desktop.png" alt="">
+      </div>
+    </div>
+  </main>
+
+  <!-- Features
+  Company
+  Careers
+  About
+
+  Login
+  Register
+
+  Make remote work
+
+  
+
+  Learn more -->
+
+</body>
+
+</html>
